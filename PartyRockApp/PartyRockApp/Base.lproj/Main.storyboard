@@ -153,22 +153,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWX-BE-Dwf">
+                            <webView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="tWX-BE-Dwf">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="dnw-BO-ed7"/>
                                 </constraints>
                             </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-es-Ik3">
+                                <rect key="frame" x="5" y="225" width="299" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="1Go-eK-41I"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="299" id="q1W-o5-mwn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StillTime-Regular" family="Still Time" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uc4-OK-zk2">
+                                <rect key="frame" x="113" y="284" width="95" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="StillTime-Regular" family="Still Time" pointSize="32"/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismissBtn:" destination="dMO-bK-AFz" eventType="touchUpInside" id="CRB-YM-Pa2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tWX-BE-Dwf" firstAttribute="trailing" secondItem="iza-u9-GI8" secondAttribute="trailing" id="8b0-Xa-H8s"/>
+                            <constraint firstItem="Dbg-es-Ik3" firstAttribute="top" secondItem="tWX-BE-Dwf" secondAttribute="bottom" constant="50" id="YW7-r1-qDo"/>
                             <constraint firstItem="tWX-BE-Dwf" firstAttribute="leading" secondItem="iza-u9-GI8" secondAttribute="leading" id="Yam-b3-Swq"/>
                             <constraint firstItem="tWX-BE-Dwf" firstAttribute="top" secondItem="iza-u9-GI8" secondAttribute="top" id="aSZ-HY-RlI"/>
+                            <constraint firstItem="Dbg-es-Ik3" firstAttribute="leading" secondItem="iza-u9-GI8" secondAttribute="leading" constant="5" id="hZL-cL-QhN"/>
+                            <constraint firstItem="iza-u9-GI8" firstAttribute="trailing" secondItem="Dbg-es-Ik3" secondAttribute="trailing" constant="16" id="zMb-jL-GVb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iza-u9-GI8"/>
                     </view>
+                    <connections>
+                        <outlet property="titleLbl" destination="Dbg-es-Ik3" id="rI4-6Z-81S"/>
+                        <outlet property="webView" destination="tWX-BE-Dwf" id="ugS-1D-bTQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVd-iO-fra" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
