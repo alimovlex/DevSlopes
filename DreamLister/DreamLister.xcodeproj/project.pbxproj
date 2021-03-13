@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E256794525FCBDEF003B1BA2 /* tesla.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E256794425FCBDEF003B1BA2 /* tesla.jpg */; };
+		E256794825FCC04C003B1BA2 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E256794725FCC04B003B1BA2 /* MaterialView.swift */; };
 		E2731D9E25FC2DAE00CF4823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2731D9D25FC2DAE00CF4823 /* AppDelegate.swift */; };
-		E2731DA225FC2DAE00CF4823 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2731DA125FC2DAE00CF4823 /* ViewController.swift */; };
+		E2731DA225FC2DAE00CF4823 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2731DA125FC2DAE00CF4823 /* MainVC.swift */; };
 		E2731DA525FC2DAE00CF4823 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2731DA325FC2DAE00CF4823 /* Main.storyboard */; };
 		E2731DA825FC2DAE00CF4823 /* DreamLister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2731DA625FC2DAE00CF4823 /* DreamLister.xcdatamodeld */; };
 		E2731DAA25FC2DB000CF4823 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2731DA925FC2DB000CF4823 /* Assets.xcassets */; };
@@ -24,9 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E256794425FCBDEF003B1BA2 /* tesla.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tesla.jpg; sourceTree = "<group>"; };
+		E256794725FCC04B003B1BA2 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		E2731D9A25FC2DAE00CF4823 /* DreamLister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamLister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2731D9D25FC2DAE00CF4823 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2731DA125FC2DAE00CF4823 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2731DA125FC2DAE00CF4823 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		E2731DA425FC2DAE00CF4823 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2731DA725FC2DAE00CF4823 /* DreamLister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamLister.xcdatamodel; sourceTree = "<group>"; };
 		E2731DA925FC2DB000CF4823 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,10 +57,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E256794625FCBF1B003B1BA2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E256794725FCC04B003B1BA2 /* MaterialView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E2731D9125FC2DAE00CF4823 = {
 			isa = PBXGroup;
 			children = (
-				E2731DC425FC951F00CF4823 /* Model */,
 				E2731D9C25FC2DAE00CF4823 /* DreamLister */,
 				E2731D9B25FC2DAE00CF4823 /* Products */,
 			);
@@ -73,8 +84,11 @@
 		E2731D9C25FC2DAE00CF4823 /* DreamLister */ = {
 			isa = PBXGroup;
 			children = (
+				E256794625FCBF1B003B1BA2 /* View */,
+				E2731DC425FC951F00CF4823 /* Model */,
 				E2731D9D25FC2DAE00CF4823 /* AppDelegate.swift */,
-				E2731DA125FC2DAE00CF4823 /* ViewController.swift */,
+				E256794425FCBDEF003B1BA2 /* tesla.jpg */,
+				E2731DA125FC2DAE00CF4823 /* MainVC.swift */,
 				E2731DA325FC2DAE00CF4823 /* Main.storyboard */,
 				E2731DA925FC2DB000CF4823 /* Assets.xcassets */,
 				E2731DAB25FC2DB000CF4823 /* LaunchScreen.storyboard */,
@@ -166,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2731DAD25FC2DB000CF4823 /* LaunchScreen.storyboard in Resources */,
+				E256794525FCBDEF003B1BA2 /* tesla.jpg in Resources */,
 				E2731DAA25FC2DB000CF4823 /* Assets.xcassets in Resources */,
 				E2731DA525FC2DAE00CF4823 /* Main.storyboard in Resources */,
 			);
@@ -181,12 +196,13 @@
 				E2731DC225FC950F00CF4823 /* Item+CoreDataClass.swift in Sources */,
 				E2731DC125FC950F00CF4823 /* Image+CoreDataProperties.swift in Sources */,
 				E2731DBC25FC950F00CF4823 /* ItemType+CoreDataClass.swift in Sources */,
+				E256794825FCC04C003B1BA2 /* MaterialView.swift in Sources */,
 				E2731DBE25FC950F00CF4823 /* Store+CoreDataClass.swift in Sources */,
 				E2731DBD25FC950F00CF4823 /* ItemType+CoreDataProperties.swift in Sources */,
 				E2731DC025FC950F00CF4823 /* Image+CoreDataClass.swift in Sources */,
 				E2731DA825FC2DAE00CF4823 /* DreamLister.xcdatamodeld in Sources */,
 				E2731DBF25FC950F00CF4823 /* Store+CoreDataProperties.swift in Sources */,
-				E2731DA225FC2DAE00CF4823 /* ViewController.swift in Sources */,
+				E2731DA225FC2DAE00CF4823 /* MainVC.swift in Sources */,
 				E2731DC325FC950F00CF4823 /* Item+CoreDataProperties.swift in Sources */,
 				E2731D9E25FC2DAE00CF4823 /* AppDelegate.swift in Sources */,
 			);
@@ -335,7 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8T595WJ7W8;
 				INFOPLIST_FILE = DreamLister/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,7 +370,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8T595WJ7W8;
 				INFOPLIST_FILE = DreamLister/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
