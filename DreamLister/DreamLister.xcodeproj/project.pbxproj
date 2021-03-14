@@ -23,6 +23,7 @@
 		E2731DC125FC950F00CF4823 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2731DB925FC950F00CF4823 /* Image+CoreDataProperties.swift */; };
 		E2731DC225FC950F00CF4823 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2731DBA25FC950F00CF4823 /* Item+CoreDataClass.swift */; };
 		E2731DC325FC950F00CF4823 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2731DBB25FC950F00CF4823 /* Item+CoreDataProperties.swift */; };
+		E28BD35E25FD95D7009DBB4C /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BD35D25FD95D7009DBB4C /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E2731DB925FC950F00CF4823 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E2731DBA25FC950F00CF4823 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E2731DBB25FC950F00CF4823 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E28BD35D25FD95D7009DBB4C /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				E256794725FCC04B003B1BA2 /* MaterialView.swift */,
+				E28BD35D25FD95D7009DBB4C /* ItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28BD35E25FD95D7009DBB4C /* ItemCell.swift in Sources */,
 				E2731DC225FC950F00CF4823 /* Item+CoreDataClass.swift in Sources */,
 				E2731DC125FC950F00CF4823 /* Image+CoreDataProperties.swift in Sources */,
 				E2731DBC25FC950F00CF4823 /* ItemType+CoreDataClass.swift in Sources */,
