@@ -138,6 +138,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         item3.price = 110000;
         item3.details = "Oh man this is a beautiful car. And one day, I will own it";
         
+        ad.saveContext();
     }
     
 }
