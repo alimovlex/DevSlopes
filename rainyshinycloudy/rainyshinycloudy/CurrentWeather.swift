@@ -4,7 +4,7 @@
 //
 //  Created by robot on 3/22/21.
 //  Copyright © 2021 robot. All rights reserved.
-//
+// THE MODEL OF THE APPLICATION
 
 import UIKit
 import Alamofire
@@ -48,4 +48,15 @@ class CurrentWeather {
         }
         return _currentTemp;
     }
+    
+    func downloadWeatherDetails(completed: DownloadComplete) {
+        //Alamofire download
+        let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!;
+        AF.request(currentWeatherURL).responseJSON { response in
+            let result = response.result;
+            print(response);
+        }
+        completed();
+    }
+    
 }
