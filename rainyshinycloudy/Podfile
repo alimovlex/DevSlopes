@@ -1,8 +1,19 @@
 # Uncomment the next line to define a global platform for your project
-# source 'https://github.com/cocoapods/specs'
-platform :ios, '10.3'
-use_frameworks!
+platform :ios, '9.0'
 
 target 'rainyshinycloudy' do
-pod 'Alamofire', '~> 5.2'
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+	pod 'Alamofire', '~> 4.9.1'
+  # Pods for rainyshinycloudy
+
+  target 'rainyshinycloudyTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'rainyshinycloudyUITests' do
+    # Pods for testing
+  end
+
 end

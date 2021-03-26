@@ -52,9 +52,9 @@ class CurrentWeather {
     func downloadWeatherDetails(completed: DownloadComplete) {
         //Alamofire download
         let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!;
-        AF.request(currentWeatherURL).responseJSON { response  in //response == nil???
-            //let result = response.result;
-            if let dict = response.value as? Dictionary<String, AnyObject> {
+        Alamofire.request(currentWeatherURL).responseJSON { response  in //response == nil???
+            let result = response.result;
+            if let dict = result.value as? Dictionary<String, AnyObject> {
                     if let name = dict["name"] as? String {
                     self._cityName = name.capitalized;
                         print(name);
