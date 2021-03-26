@@ -21,9 +21,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        //dismissing the keyboard on tap
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing));
-        view.addGestureRecognizer(tap);
         //let charmander = Pokemon(name: "Charmander", pokedexId: 4);
         collection.dataSource = self;
         collection.delegate = self;
@@ -87,7 +84,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             
             cell.configureCell(pokemon: poke);
-            
+            //cell.contentView.isUserInteractionEnabled = false;
             return cell;
         } else {
             return UICollectionViewCell();
@@ -96,6 +93,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        var poke: Pokemon!;
+        
+        if inSearchMode {
+            
+            poke = filteredPokemon[indexPath.row];
+            
+        } else {
+            
+            poke = pokemon[indexPath.row];
+        }
+        
+        performSegue(withIdentifier: "PokemonDetailVC", sender: poke);
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -150,6 +159,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         inSearchMode = false;
         self.searchBar.endEditing(true);
         //view.endEditing(true); forcing the view to dismiss the keyboard
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PokemonDetailVC" {
+            if let detailsVC = segue.destination as? PokemonDetailVC {
+                if let poke = sender as? Pokemon {
+                    detailsVC.pokemon = poke;
+                }
+            }
+        }
     }
     
 }
