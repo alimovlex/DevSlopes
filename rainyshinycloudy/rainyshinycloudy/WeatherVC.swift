@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -23,7 +24,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!;
     
-    var currentWeather:CurrentWeather!;
+    var currentWeather: CurrentWeather!;
+    var forecast: Forecast!;
+    var forecasts = [Forecast]();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -31,8 +34,33 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self;
         tableView.dataSource = self;
         currentWeather = CurrentWeather();
+        //forecast = Forecast();
         currentWeather.downloadWeatherDetails {
-            self.updateMainUI();
+            self.downloadForecastData {
+                self.updateMainUI();
+            }
+            
+        }
+    }
+    
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        //Downloading forecast weather data for TableView
+        //let forecastURL = URL(string: FORECAST_URL);
+        Alamofire.request(FORECAST_URL).responseJSON { response in
+            let result = response.result;
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for obj in list {
+                        let forecast = Forecast(weatherDict: obj);
+                        self.forecasts.append(forecast);
+                        print(obj);
+                    }
+                }
+            }
+            completed();
         }
     }
     
@@ -52,7 +80,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     func updateMainUI() {
         dateLabel.text = currentWeather.date;
-        currentTempLabel.text = "\(currentWeather.currentTemp)";
+        currentTempLabel.text = "\(Int(currentWeather.currentTemp))";
        locationLabel.text = currentWeather.cityName;
         currentWeatherTypeLabel.text = currentWeather.weatherType;
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType);

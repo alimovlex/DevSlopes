@@ -93,7 +93,7 @@ class CurrentWeather {
                     }
                 }
             }
-            completed()
+            completed();
         }
     }
 }
