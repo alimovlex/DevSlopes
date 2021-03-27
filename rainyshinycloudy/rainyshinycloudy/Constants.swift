@@ -18,7 +18,7 @@ let FORECAST_BASE_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?"
 let DAYS_COUNT = "&cnt=16";
 typealias DownloadComplete = () -> ();
 
-let CURRENT_WEATHER_URL = "\(BASE_URL)\(LATITUDE)52\(LONGTITUDE)86\(APP_ID)\(API_KEY)";
-let FORECAST_URL = "\(FORECAST_BASE_URL)\(LATITUDE)52\(LONGTITUDE)86\(DAYS_COUNT)\(APP_ID)\(API_KEY)"
+let CURRENT_WEATHER_URL = "\(BASE_URL)\(LATITUDE)\(Location.sharedInstance.latitude!)\(LONGTITUDE)\(Location.sharedInstance.longtitude!)\(APP_ID)\(API_KEY)";
+let FORECAST_URL = "\(FORECAST_BASE_URL)\(LATITUDE)\(Location.sharedInstance.latitude!)\(LONGTITUDE)\(Location.sharedInstance.longtitude!)\(DAYS_COUNT)\(APP_ID)\(API_KEY)"
 //let stroka = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=52&lon=86&cnt=10&appid=542ffd081e67f4512b705f89d2a611b2";
 

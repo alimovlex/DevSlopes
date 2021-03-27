@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 import Alamofire
 
-class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
     
     @IBOutlet weak var dateLabel: UILabel!;
@@ -24,12 +25,20 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!;
     
+    let locationManager = CLLocationManager();
+    var currentLocation: CLLocation!;
+    
     var currentWeather: CurrentWeather!;
     var forecast: Forecast!;
     var forecasts = [Forecast]();
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        locationAuthStatus();
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        locationManager.requestWhenInUseAuthorization();
+        locationManager.startMonitoringSignificantLocationChanges();
         
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -40,6 +49,19 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.updateMainUI();
             }
             
+        }
+    }
+    
+    
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            currentLocation = locationManager.location;
+            Location.sharedInstance.latitude = currentLocation.coordinate.latitude;
+            Location.sharedInstance.longtitude = currentLocation.coordinate.longitude;
+            print(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
+        } else {
+            locationManager.requestWhenInUseAuthorization();
+            locationAuthStatus();
         }
     }
     
