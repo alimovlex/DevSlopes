@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="282" width="320" height="198"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="Ps0-Xf-79s">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="Ps0-Xf-79s" customClass="WeatherCell" customModule="rainyshinycloudy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ps0-Xf-79s" id="CG4-gr-BOd">
@@ -157,6 +157,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="Mqf-qU-Pvi" id="Lmy-id-GDW"/>
+                                            <outlet property="highTemp" destination="Kbe-6z-NgA" id="sfb-ap-ZNa"/>
+                                            <outlet property="lowTemp" destination="yYv-kG-Ucc" id="yCL-VE-jI1"/>
+                                            <outlet property="weatherIcon" destination="Eff-Un-nZk" id="13k-DI-AID"/>
+                                            <outlet property="weatherType" destination="Aku-y1-8Xe" id="LP8-xj-yf8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
