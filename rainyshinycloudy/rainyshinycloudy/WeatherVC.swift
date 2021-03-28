@@ -111,7 +111,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
 
     func updateMainUI() {
         dateLabel.text = currentWeather.date;
-        currentTempLabel.text = "\(currentWeather.currentTemp.rounded())";
+        currentTempLabel.text = String(currentWeather.currentTemp.rounded());
        locationLabel.text = currentWeather.cityName;
         currentWeatherTypeLabel.text = currentWeather.weatherType;
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType);
