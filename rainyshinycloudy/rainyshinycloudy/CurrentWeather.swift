@@ -51,14 +51,15 @@ class CurrentWeather {
     
     func downloadWeatherDetails(completed: @escaping DownloadComplete) {
         //Download Current Weather Data
+        DispatchQueue.global(qos: .background).async { [weak self] in //thread added
         Alamofire.request(CURRENT_WEATHER_URL).responseJSON { response in
             let result = response.result
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
                 if let name = dict["name"] as? String {
-                    self._cityName = name.capitalized
-                    if let namecity = self._cityName {
+                    self?._cityName = name.capitalized
+                    if let namecity = self?._cityName {
                         print(namecity);
                     } else {
                         print("NULL");
@@ -68,8 +69,8 @@ class CurrentWeather {
                 if let weather = dict["weather"] as? [Dictionary<String, AnyObject>] {
                     
                     if let main = weather[0]["main"] as? String {
-                        self._weatherType = main.capitalized
-                        if let typeweather = self._weatherType {
+                        self?._weatherType = main.capitalized
+                        if let typeweather = self?._weatherType {
                             print(typeweather);
                         } else {
                             print("NULL");
@@ -84,8 +85,8 @@ class CurrentWeather {
                     
                         let kelvinToCelsius = currentTemperature - 273.15;
                         
-                        self._currentTemp = kelvinToCelsius
-                        if let tempnow = self._currentTemp {
+                        self?._currentTemp = kelvinToCelsius
+                        if let tempnow = self?._currentTemp {
                             print(tempnow);
                         } else {
                             print("NULL");
@@ -94,6 +95,7 @@ class CurrentWeather {
                 }
             }
             completed();
+        }
         }
     }
 }

@@ -54,20 +54,23 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     
     func locationAuthStatus() {
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in //thread added
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            currentLocation = locationManager.location;
-            Location.sharedInstance.latitude = currentLocation.coordinate.latitude;
-            Location.sharedInstance.longtitude = currentLocation.coordinate.longitude;
-            print(currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
+            self?.currentLocation = self?.locationManager.location;
+            Location.sharedInstance.latitude = self!.currentLocation.coordinate.latitude;
+            Location.sharedInstance.longtitude = self!.currentLocation.coordinate.longitude;
+            print(self!.currentLocation.coordinate.latitude, self!.currentLocation.coordinate.longitude);
         } else {
-            locationManager.requestWhenInUseAuthorization();
-            locationAuthStatus();
+            self?.locationManager.requestWhenInUseAuthorization();
+            self?.locationAuthStatus();
+        }
         }
     }
     
     func downloadForecastData(completed: @escaping DownloadComplete) {
         //Downloading forecast weather data for TableView
         //let forecastURL = URL(string: FORECAST_URL);
+        DispatchQueue.global(qos: .background).async { [weak self] in //thread added
         Alamofire.request(FORECAST_URL).responseJSON { response in
             let result = response.result;
             
@@ -77,14 +80,15 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
                     
                     for obj in list {
                         let forecast = Forecast(weatherDict: obj);
-                        self.forecasts.append(forecast);
+                        self?.forecasts.append(forecast);
                         print(obj);
                     }
-                    self.forecasts.remove(at: 0);
-                    self.tableView.reloadData();
+                    self?.forecasts.remove(at: 0);
+                    self?.tableView.reloadData();
                 }
             }
             completed();
+            }
         }
     }
     
