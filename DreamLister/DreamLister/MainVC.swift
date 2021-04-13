@@ -17,6 +17,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     var controller: NSFetchedResultsController<Item>!;
     
    
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -24,7 +25,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.dataSource = self;
         
         attemptFetch();
-        generateTestData();
+        if #available(iOS 10.0, *) {
+            generateTestData()
+        } else {
+            // Fallback on earlier versions
+        };
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,6 +126,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
     }
     
+    @available(iOS 10.0, *)
     func generateTestData() {
         
         let item = Item(context: context);
