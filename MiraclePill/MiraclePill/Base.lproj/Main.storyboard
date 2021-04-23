@@ -61,7 +61,7 @@
                                     <constraint firstAttribute="height" constant="30" id="aFO-DQ-6g4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="STREET ADDRESS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bkt-3y-2Np">
                                 <rect key="frame" x="38" y="198" width="241" height="23"/>
@@ -78,7 +78,7 @@
                                     <constraint firstAttribute="height" constant="30" id="E1e-Px-83i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="CITY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiY-IF-cH8">
                                 <rect key="frame" x="38" y="267" width="241" height="23"/>
@@ -95,7 +95,7 @@
                                     <constraint firstAttribute="height" constant="30" id="PVC-dO-iQn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="STATE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icY-ns-0dB">
                                 <rect key="frame" x="38" y="336" width="241" height="23"/>
@@ -168,6 +168,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addressField" destination="SFr-i8-IaV" id="CPS-Ig-hSr"/>
+                        <outlet property="cityField" destination="cKX-qg-xXH" id="GW2-Tn-afj"/>
+                        <outlet property="nameField" destination="hMr-cM-GFM" id="iDJ-k0-U1L"/>
                         <outlet property="statePicker" destination="Kmr-cb-dUI" id="HBv-zW-Jyy"/>
                         <outlet property="statePickerBtn" destination="fHa-we-6Hh" id="kEH-ry-jQO"/>
                     </connections>

@@ -8,16 +8,26 @@
 
 import UIKit
 //declaring the class with protocols
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad();
         statePicker.dataSource = self;
         statePicker.delegate = self;
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing));
+        view.addGestureRecognizer(tap);
+        nameField.delegate = self; //delegating the keyboard dismissal on return
+        addressField.delegate = self; //delegating the keyboard dismissal on return
+        cityField.delegate = self;
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var statePicker: UIPickerView!; //a reference variable to the UIPicker
     @IBOutlet weak var statePickerBtn: UIButton!;
+    
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var cityField: UITextField!
     //an array of states in UIPickerView
     let states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California",
                   "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
@@ -49,6 +59,21 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statePickerBtn.setTitle(states[row], for: UIControl.State.normal);
         statePicker.isHidden = true;
+    }
+    
+    //hiding the keyboard on return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case nameField:
+            textField.resignFirstResponder();
+        case addressField:
+            textField.resignFirstResponder();
+        case cityField:
+            textField.resignFirstResponder();
+        default:
+            break;
+        }
+     return true
     }
     
 }
