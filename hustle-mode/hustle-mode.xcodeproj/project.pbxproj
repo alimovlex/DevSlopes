@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E26D8E392632B42500D5FC57 /* hustle-on.wav in Resources */ = {isa = PBXBuildFile; fileRef = E26D8E382632B42500D5FC57 /* hustle-on.wav */; };
 		E29C355A2631FCE500FC64BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C35592631FCE500FC64BB /* AppDelegate.swift */; };
 		E29C355E2631FCE500FC64BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29C355D2631FCE500FC64BB /* ViewController.swift */; };
 		E29C35612631FCE500FC64BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E29C355F2631FCE500FC64BB /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E26D8E382632B42500D5FC57 /* hustle-on.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "hustle-on.wav"; sourceTree = "<group>"; };
 		E29C35562631FCE500FC64BB /* hustle-mode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hustle-mode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E29C35592631FCE500FC64BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E29C355D2631FCE500FC64BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				E29C355D2631FCE500FC64BB /* ViewController.swift */,
 				E29C355F2631FCE500FC64BB /* Main.storyboard */,
 				E29C35622631FCE700FC64BB /* Assets.xcassets */,
+				E26D8E382632B42500D5FC57 /* hustle-on.wav */,
 				E29C35642631FCE700FC64BB /* LaunchScreen.storyboard */,
 				E29C35672631FCE700FC64BB /* Info.plist */,
 			);
@@ -122,6 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26D8E392632B42500D5FC57 /* hustle-on.wav in Resources */,
 				E29C35662631FCE700FC64BB /* LaunchScreen.storyboard in Resources */,
 				E29C35632631FCE700FC64BB /* Assets.xcassets in Resources */,
 				E29C35612631FCE500FC64BB /* Main.storyboard in Resources */,
