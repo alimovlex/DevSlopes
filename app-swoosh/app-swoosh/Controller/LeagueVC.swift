@@ -16,6 +16,10 @@ class LeagueVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func onNextTapped(_ sender: Any) {
+        //Programmatic segue on button tap.
+        performSegue(withIdentifier: "skillVCSegue", sender: self);
+    }
 
     /*
     // MARK: - Navigation
