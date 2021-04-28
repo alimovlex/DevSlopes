@@ -9,13 +9,16 @@
 import UIKit
 import Speech
 import AVFoundation
+import CoreMIDI
 
-class ViewController: UIViewController, AVAudioPlayerDelegate {
+class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
 
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!;
     @IBOutlet weak var transcriptionTextField: UITextView!;
     
+    var audioRecorder: AVAudioRecorder!;
     var audioPlayer: AVAudioPlayer!;
+    var recordingSession: AVAudioSession!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
