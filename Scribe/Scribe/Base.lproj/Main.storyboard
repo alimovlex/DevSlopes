@@ -69,6 +69,22 @@
                                     <constraint firstAttribute="height" constant="60" id="Spa-JS-M87"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2Y-ml-YRl">
+                                <rect key="frame" x="15" y="494" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZA1-4F-6SF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPm-ek-yWB">
+                                <rect key="frame" x="198" y="494" width="93" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="roL-kt-lVy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -90,6 +106,8 @@
                     </view>
                     <connections>
                         <outlet property="activitySpinner" destination="LTI-oA-O4b" id="1td-uG-l8N"/>
+                        <outlet property="playButton" destination="EPm-ek-yWB" id="q9l-Jt-cYg"/>
+                        <outlet property="recordButton" destination="w2Y-ml-YRl" id="3nK-ds-M0J"/>
                         <outlet property="transcriptionTextField" destination="ykg-zf-n6w" id="kjk-nF-jXi"/>
                     </connections>
                 </viewController>
