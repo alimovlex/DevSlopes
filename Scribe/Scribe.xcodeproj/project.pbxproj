@@ -13,7 +13,6 @@
 		E2116EFF2639E5FD009AB2D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2116EFE2639E5FD009AB2D6 /* Assets.xcassets */; };
 		E2116F022639E5FD009AB2D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2116F002639E5FD009AB2D6 /* LaunchScreen.storyboard */; };
 		E2116F0D2639ECBD009AB2D6 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2116F0C2639ECBD009AB2D6 /* CircleButton.swift */; };
-		E2771D892639F1EB00B0CD9E /* test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = E2771D882639F1EB00B0CD9E /* test.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		E2116F012639E5FD009AB2D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2116F032639E5FD009AB2D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2116F0C2639ECBD009AB2D6 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
-		E2771D882639F1EB00B0CD9E /* test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +60,6 @@
 				E2116F0A2639EC5E009AB2D6 /* View */,
 				E2116F092639EC4E009AB2D6 /* Model */,
 				E2116EF52639E5FB009AB2D6 /* AppDelegate.swift */,
-				E2771D882639F1EB00B0CD9E /* test.m4a */,
 				E2116EFB2639E5FB009AB2D6 /* Main.storyboard */,
 				E2116EFE2639E5FD009AB2D6 /* Assets.xcassets */,
 				E2116F002639E5FD009AB2D6 /* LaunchScreen.storyboard */,
@@ -152,7 +149,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2771D892639F1EB00B0CD9E /* test.m4a in Resources */,
 				E2116F022639E5FD009AB2D6 /* LaunchScreen.storyboard in Resources */,
 				E2116EFF2639E5FD009AB2D6 /* Assets.xcassets in Resources */,
 				E2116EFD2639E5FB009AB2D6 /* Main.storyboard in Resources */,
