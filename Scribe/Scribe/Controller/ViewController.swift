@@ -57,7 +57,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     func requestSpeechAuth() {
         SFSpeechRecognizer.requestAuthorization { authstatus in
             if authstatus == SFSpeechRecognizerAuthorizationStatus.authorized {
-                if let path = Bundle.main.url(forResource: "test", withExtension: "m4a") {
+                if let path = self.getFileURL() as URL? {
                     do {
                         let sound = try AVAudioPlayer(contentsOf: path)
                         self.audioPlayer = sound;
