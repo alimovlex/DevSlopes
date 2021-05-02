@@ -105,11 +105,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             progressLbl?.removeFromSuperview();
         }
     }
-    /*
-    func deviceLocation() ->String {
-        return "Longtitude: \(self.locationManager.location?.coordinate.longitude) Latitude: \(self.locationManager.location?.coordinate.latitude)"
-    }
- */
     
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
@@ -183,31 +178,32 @@ extension MapVC: MKMapViewDelegate {
     }
     
     func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping (_ status: Bool) -> ()) {
-        
+        DispatchQueue.global(qos: .background).async { [weak self] in //thread added
         Alamofire.request(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumberOfPhotos: 10)).responseJSON { (response) in
             guard let json = response.result.value as? Dictionary<String, AnyObject> else {return;}
             let photosDict = json["photos"] as! Dictionary<String, AnyObject>;
             let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>];
             for photo in photosDictArray {
                 let postUrl = "https://live.staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_b_d.jpg";
-                self.imageUrlArray.append(postUrl);
+                self?.imageUrlArray.append(postUrl);
             }
             handler(true);
+        }
         }
     }
     
     func retrieveImages(handler: @escaping (_ status: Bool) -> ()) {
-        
-        for url in imageUrlArray {
+        DispatchQueue.global(qos: .background).async { [weak self] in //thread added
+            for url in self!.imageUrlArray {
             Alamofire.request(url).responseImage(completionHandler: { (response) in
                 guard let image = response.result.value else {return;}
-                self.imageArray.append(image);
-                self.progressLbl?.text = "\(self.imageArray.count)/10 IMAGES DOWNLOADED";
-                
-                if self.imageArray.count == self.imageUrlArray.count {
+                self?.imageArray.append(image);
+                self?.progressLbl?.text = "\(self!.imageArray.count))/10 IMAGES DOWNLOADED";
+                if self?.imageArray.count == self?.imageUrlArray.count {
                     handler(true);
                 }
             });
+        }
         }
     }
     
@@ -222,7 +218,7 @@ extension MapVC: MKMapViewDelegate {
 
 extension MapVC: CLLocationManagerDelegate {
     func configureLocationServices() {
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in //thread added
             if self?.authorizationStatus == .notDetermined {
                 self?.locationManager.requestAlwaysAuthorization();
                 self?.locationManager.startUpdatingLocation();
