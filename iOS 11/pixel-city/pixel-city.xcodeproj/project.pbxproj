@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		E2444206263C16B0006953C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2444204263C16B0006953C4 /* Main.storyboard */; };
 		E2444208263C16B1006953C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2444207263C16B1006953C4 /* Assets.xcassets */; };
 		E244420B263C16B1006953C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2444209263C16B1006953C4 /* LaunchScreen.storyboard */; };
+		E2D7ABF4263E28EB006F83D4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D7ABF3263E28EB006F83D4 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		E2444207263C16B1006953C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E244420A263C16B1006953C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E244420C263C16B1006953C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2D7ABF3263E28EB006F83D4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E2D7ABF5263E2D5B006F83D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2D7ABF4263E28EB006F83D4 /* MapKit.framework in Frameworks */,
 				3752327E84C7132C795E2543 /* Pods_pixel_city.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +47,8 @@
 		DE85D45F12EEC135CEE12F67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2D7ABF5263E2D5B006F83D4 /* CoreGraphics.framework */,
+				E2D7ABF3263E28EB006F83D4 /* MapKit.framework */,
 				2281D1C3924523B8630009CE /* Pods_pixel_city.framework */,
 			);
 			name = Frameworks;
@@ -117,7 +123,6 @@
 				34789E59C82A131A9321B035 /* Pods-pixel-city.debug.xcconfig */,
 				6FD63D1D5510D363A5F43FDB /* Pods-pixel-city.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
