@@ -21,7 +21,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var locationManager = CLLocationManager();
     let authorizationStatus = CLLocationManager.authorizationStatus();
     let regionRadius: Double = 500;
-    
     var screenSize = UIScreen.main.bounds;
     
     var spinner: UIActivityIndicatorView?;
@@ -47,13 +46,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1);
         
         pullUpView.addSubview(collectionView!);
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.locationManager.distanceFilter = kCLDistanceFilterNone;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        self.locationManager.startUpdatingLocation();
-        print(self.deviceLocation());
     }
     
     func addDoubleTap() {
@@ -113,10 +105,11 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             progressLbl?.removeFromSuperview();
         }
     }
-    
+    /*
     func deviceLocation() ->String {
-        return "Longtitude: \(self.locationManager.location!.coordinate.longitude) Latitude: \(self.locationManager.location!.coordinate.latitude)"
+        return "Longtitude: \(self.locationManager.location?.coordinate.longitude) Latitude: \(self.locationManager.location?.coordinate.latitude)"
     }
+ */
     
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
@@ -145,6 +138,7 @@ extension MapVC: MKMapViewDelegate {
     }
     
     @objc func dropPin(sender: UITapGestureRecognizer) {
+        
         removePin();
         removeSpinner();
         removeProgressLbl();
@@ -190,7 +184,7 @@ extension MapVC: MKMapViewDelegate {
     
     func retrieveUrls(forAnnotation annotation: DroppablePin, handler: @escaping (_ status: Bool) -> ()) {
         
-        Alamofire.request(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
+        Alamofire.request(flickrUrl(forApiKey: apiKey, withAnnotation: annotation, andNumberOfPhotos: 10)).responseJSON { (response) in
             guard let json = response.result.value as? Dictionary<String, AnyObject> else {return;}
             let photosDict = json["photos"] as! Dictionary<String, AnyObject>;
             let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>];
@@ -208,7 +202,7 @@ extension MapVC: MKMapViewDelegate {
             Alamofire.request(url).responseImage(completionHandler: { (response) in
                 guard let image = response.result.value else {return;}
                 self.imageArray.append(image);
-                self.progressLbl?.text = "\(self.imageArray.count)/40 IMAGES DOWNLOADED";
+                self.progressLbl?.text = "\(self.imageArray.count)/10 IMAGES DOWNLOADED";
                 
                 if self.imageArray.count == self.imageUrlArray.count {
                     handler(true);
@@ -228,14 +222,18 @@ extension MapVC: MKMapViewDelegate {
 
 extension MapVC: CLLocationManagerDelegate {
     func configureLocationServices() {
-        if authorizationStatus == .notDetermined {
-            locationManager.requestAlwaysAuthorization();
-            locationManager.startUpdatingLocation();
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            if self?.authorizationStatus == .notDetermined {
+                self?.locationManager.requestAlwaysAuthorization();
+                self?.locationManager.startUpdatingLocation();
+                self?.locationManager.distanceFilter = kCLDistanceFilterNone;
+                self?.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+                //print(self!.deviceLocation());
         } else {
             return;
         }
     }
-    
+}
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         centerMapOnUserLocation();
     }

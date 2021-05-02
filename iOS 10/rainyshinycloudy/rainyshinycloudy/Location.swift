@@ -15,7 +15,7 @@ class Location {
         
     }
     
-    var latitude: Double!;
-    var longtitude: Double!;
+    var latitude: Double?;
+    var longtitude: Double?;
     
 }

@@ -52,7 +52,7 @@ class CurrentWeather {
     func downloadWeatherDetails(completed: @escaping DownloadComplete) {
         //Download Current Weather Data
         DispatchQueue.global(qos: .background).async { [weak self] in //thread added
-        Alamofire.request(CURRENT_WEATHER_URL).responseJSON { response in
+        Alamofire.request(currentWeatherUrl()).responseJSON { response in
             let result = response.result
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
