@@ -18,6 +18,7 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9c-vb-G0T">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <gestureRecognizers/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyg-yy-vKT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
