@@ -36,10 +36,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         super.viewDidLoad();
         locationAuthStatus();
         locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        locationManager.requestWhenInUseAuthorization();
-        locationManager.startMonitoringSignificantLocationChanges();
-        
         tableView.delegate = self;
         tableView.dataSource = self;
         currentWeather = CurrentWeather();
@@ -56,6 +52,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     func locationAuthStatus() {
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in //thread added
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            self?.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            self?.locationManager.requestWhenInUseAuthorization();
+            self?.locationManager.startMonitoringSignificantLocationChanges();
             self?.currentLocation = self?.locationManager.location;
             Location.sharedInstance.latitude = self?.currentLocation.coordinate.latitude;
             Location.sharedInstance.longtitude = self?.currentLocation.coordinate.longitude;
