@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/* UNDER PROGRESS OF MOVING VIEW AFTER KEYBOARD
 extension UIView {
     
     func bindToKeyboard() {
@@ -27,3 +27,4 @@ extension UIView {
         }, completion: nil);
     }
 }
+*/
