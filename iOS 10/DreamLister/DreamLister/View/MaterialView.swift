@@ -34,6 +34,7 @@ extension UIView {
                 
                 self.layer.cornerRadius = 0;
                 self.layer.shadowRadius = 0;
+                self.layer.shadowOpacity = 0;
                 self.layer.shadowColor = nil;
             }
         }

@@ -15,8 +15,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     @IBOutlet weak var segment: UISegmentedControl!;
     
     var controller: NSFetchedResultsController<Item>!;
-    
-   
+   // var config = configureContainer();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -25,11 +24,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         tableView.dataSource = self;
         
         attemptFetch();
-        if #available(iOS 10.0, *) {
-            generateTestData()
-        } else {
-            // Fallback on earlier versions
-        };
+        generateTestData();
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +35,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
     }
     
     func configureCell (cell: ItemCell, indexPath: NSIndexPath) {
-        
+        //Update Cell
         let item = controller.object(at: indexPath as IndexPath);
         cell.configureCell(item: item);
     }
@@ -50,7 +45,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             let sectionInfo = sections[section];
             return sectionInfo.numberOfObjects;
         }
-        
         return 0;
     }
     
@@ -58,7 +52,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         if let sections = controller.sections {
             return sections.count;
         }
-        
         return 0;
     }
     
@@ -98,7 +91,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         switch (type) {
         case .insert:
             if let indexPath = newIndexPath {
-                
                 tableView.insertRows(at: [indexPath], with: .fade);
             }
             break;
@@ -126,25 +118,47 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
     }
     
-    @available(iOS 10.0, *)
     func generateTestData() {
         
-        let item = Item(context: context);
-        item.title = "MacBook Pro";
-        item.price = 1800;
-        item.details = "I can't wait until the September event, I hope they release new MBPs";
+        if #available(iOS 10.0, *) {
+            let item = Item(context: context);
+            item.title = "MacBook Pro";
+            item.price = 1800;
+            item.details = "I can't wait until the September event, I hope they release new MBPs";
+            
+            let item2 = Item(context: context);
+            item2.title = "Bose Headphones";
+            item2.price = 300;
+            item2.details = "But man, it's so nice to be able to block out everyone with the noise canceling tech";
+            
+            let item3 = Item(context: context);
+            item3.title = "Tesla Model S";
+            item3.price = 110000;
+            item3.details = "Oh man this is a beautiful car. And one day, I will own it";
+            ad.saveContext();
+        } else {
+            // Fallback on earlier versions
+            let entityDescription = NSEntityDescription.entity(forEntityName: "Item",
+                                                               in: context);
+            let item = Item(entity: entityDescription!, insertInto: context);
+            item.title = "MacBook Pro";
+            item.price = 1800;
+            item.details = "I can't wait until the September event, I hope they release new MBPs";
+            
+            let item2 = Item(entity: entityDescription!, insertInto: context);
+            item2.title = "Bose Headphones";
+            item2.price = 300;
+            item2.details = "But man, it's so nice to be able to block out everyone with the noise canceling tech";
+            
+            let item3 = Item(entity: entityDescription!, insertInto: context);
+            item3.title = "Tesla Model S";
+            item3.price = 110000;
+            item3.details = "Oh man this is a beautiful car. And one day, I will own it";
+            ad.saveContext();
+        };
         
-        let item2 = Item(context: context);
-        item2.title = "Bose Headphones";
-        item2.price = 300;
-        item2.details = "But man, it's so nice to be able to block out everyone with the noise canceling tech";
         
-        let item3 = Item(context: context);
-        item3.title = "Tesla Model S";
-        item3.price = 110000;
-        item3.details = "Oh man this is a beautiful car. And one day, I will own it";
         
-        ad.saveContext();
     }
     
 }

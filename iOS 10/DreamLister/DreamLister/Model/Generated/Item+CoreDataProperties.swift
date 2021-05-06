@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  DreamLister
 //
-//  Created by robot on 3/13/21.
+//  Created by robot on 5/7/21.
 //  Copyright © 2021 robot. All rights reserved.
 //
 //
@@ -19,8 +19,8 @@ extension Item {
 
     @NSManaged public var created: Date?
     @NSManaged public var details: String?
-    @NSManaged public var price: Double
     @NSManaged public var title: String?
+    @NSManaged public var price: Double
     @NSManaged public var toImage: Image?
     @NSManaged public var toItemType: ItemType?
     @NSManaged public var toStore: Store?

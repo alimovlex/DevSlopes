@@ -2,7 +2,7 @@
 //  Store+CoreDataProperties.swift
 //  DreamLister
 //
-//  Created by robot on 3/13/21.
+//  Created by robot on 5/7/21.
 //  Copyright © 2021 robot. All rights reserved.
 //
 //
