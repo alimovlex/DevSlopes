@@ -16,6 +16,8 @@
 		E207CF7D264485E500F53E88 /* Image+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207CF75264485E500F53E88 /* Image+CoreDataClass.swift */; };
 		E207CF7E264485E500F53E88 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207CF76264485E500F53E88 /* Image+CoreDataProperties.swift */; };
 		E207CF7F2644867C00F53E88 /* DreamLister.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = E24E1B06264407CC00B855B1 /* DreamLister.xcdatamodeld */; };
+		E207CF822644B00E00F53E88 /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207CF812644B00E00F53E88 /* ItemDetailsVC.swift */; };
+		E207CF842644B4FA00F53E88 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207CF832644B4FA00F53E88 /* CustomTextField.swift */; };
 		E256794525FCBDEF003B1BA2 /* tesla.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E256794425FCBDEF003B1BA2 /* tesla.jpg */; };
 		E256794825FCC04C003B1BA2 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E256794725FCC04B003B1BA2 /* MaterialView.swift */; };
 		E2731D9E25FC2DAE00CF4823 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2731D9D25FC2DAE00CF4823 /* AppDelegate.swift */; };
@@ -35,6 +37,8 @@
 		E207CF74264485E500F53E88 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E207CF75264485E500F53E88 /* Image+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E207CF76264485E500F53E88 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E207CF812644B00E00F53E88 /* ItemDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
+		E207CF832644B4FA00F53E88 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E24E1B07264407CC00B855B1 /* DreamLister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DreamLister.xcdatamodel; sourceTree = "<group>"; };
 		E256794425FCBDEF003B1BA2 /* tesla.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tesla.jpg; sourceTree = "<group>"; };
 		E256794725FCC04B003B1BA2 /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
@@ -59,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E207CF802644AFD600F53E88 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2731DA125FC2DAE00CF4823 /* MainVC.swift */,
+				E207CF812644B00E00F53E88 /* ItemDetailsVC.swift */,
+				E207CF832644B4FA00F53E88 /* CustomTextField.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E256794625FCBF1B003B1BA2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,12 +101,12 @@
 		E2731D9C25FC2DAE00CF4823 /* DreamLister */ = {
 			isa = PBXGroup;
 			children = (
+				E207CF802644AFD600F53E88 /* Controller */,
 				E256794625FCBF1B003B1BA2 /* View */,
 				E2731DC425FC951F00CF4823 /* Model */,
 				E2731D9D25FC2DAE00CF4823 /* AppDelegate.swift */,
 				E24E1B06264407CC00B855B1 /* DreamLister.xcdatamodeld */,
 				E256794425FCBDEF003B1BA2 /* tesla.jpg */,
-				E2731DA125FC2DAE00CF4823 /* MainVC.swift */,
 				E2731DA325FC2DAE00CF4823 /* Main.storyboard */,
 				E2731DA925FC2DB000CF4823 /* Assets.xcassets */,
 				E2731DAB25FC2DB000CF4823 /* LaunchScreen.storyboard */,
@@ -197,12 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E207CF842644B4FA00F53E88 /* CustomTextField.swift in Sources */,
 				E207CF7B264485E500F53E88 /* Item+CoreDataClass.swift in Sources */,
 				E28BD35E25FD95D7009DBB4C /* ItemCell.swift in Sources */,
 				E207CF77264485E500F53E88 /* Store+CoreDataClass.swift in Sources */,
 				E207CF7D264485E500F53E88 /* Image+CoreDataClass.swift in Sources */,
 				E207CF7A264485E500F53E88 /* ItemType+CoreDataProperties.swift in Sources */,
 				E207CF7E264485E500F53E88 /* Image+CoreDataProperties.swift in Sources */,
+				E207CF822644B00E00F53E88 /* ItemDetailsVC.swift in Sources */,
 				E256794825FCC04C003B1BA2 /* MaterialView.swift in Sources */,
 				E207CF79264485E500F53E88 /* ItemType+CoreDataClass.swift in Sources */,
 				E207CF78264485E500F53E88 /* Store+CoreDataProperties.swift in Sources */,
