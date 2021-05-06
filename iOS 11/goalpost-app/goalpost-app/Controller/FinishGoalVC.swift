@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class FinishGoalVC: UIViewController {
+class FinishGoalVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var pointsTextField: UITextField!;
     
@@ -22,6 +23,7 @@ class FinishGoalVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        pointsTextField.delegate = self;
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing));
         view.addGestureRecognizer(tap);
         bindCreateGoalBtnToKeyboard();
@@ -37,7 +39,52 @@ class FinishGoalVC: UIViewController {
     }
     
     @objc func createGoalBtnWasPressed() {
-        //Pass data into Core Data Goal Model
-        print("CREATE GOAL button was pressed");
+        if pointsTextField.text != "" {
+        self.save { (complete) in
+            if complete {
+                dismiss(animated: true, completion: nil);
+            }
+        }
+        }
+    }
+    
+    @IBAction func backBtnWasPressed(_ sender: Any) {
+        dismissDetail();
+    }
+    
+    func save(completion: (_ finished: Bool) -> ()) {
+        if #available(iOS 10.0, *) {
+            guard let managedContext = appDelegate?.persistentContainer.viewContext else {return;}
+            let goal = Goal(context: managedContext);
+            goal.goalDescription = goalDescription;
+            goal.goalType = goalType.rawValue;
+            goal.goalCompletionValue = Int32(pointsTextField.text!)!;
+            goal.goalProgress = Int32(0);
+            do {
+                try managedContext.save();
+                print("Successfully saved data.");
+                completion(true);
+            } catch {
+                debugPrint("Could not save: \(error.localizedDescription)");
+                completion(false);
+            }
+        } else {
+        guard let managedContext = appDelegate?.managedObjectContext else {return;}
+            let entityDescription = NSEntityDescription.entity(forEntityName: "Goal",
+                                                               in: managedContext);
+            let goal = Goal(entity: entityDescription!, insertInto: managedContext);
+            goal.goalDescription = goalDescription;
+            goal.goalType = goalType.rawValue;
+            goal.goalCompletionValue = Int32(pointsTextField.text!)!;
+            goal.goalProgress = Int32(0);
+            do {
+                try managedContext.save();
+                print("Successfully saved data.");
+                completion(true);
+            } catch {
+                debugPrint("Could not save: \(error.localizedDescription)");
+                completion(false);
+            }
+    }
     }
 }
