@@ -39,8 +39,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
         imagePicker = UIImagePickerController();
         imagePicker.delegate = self;
- 
-        generateStores();
+        
         getStores();
         
         if itemToEdit != nil {
@@ -102,7 +101,14 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         }
     }
     
+    
     func getStores() {
+        
+        if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
+            generateStores();
+            UserDefaults.standard.set(true, forKey: "ExecuteOnce")
+        }
+        
         let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest();
         
         do {
