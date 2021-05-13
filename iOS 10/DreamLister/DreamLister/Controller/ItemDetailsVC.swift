@@ -39,7 +39,34 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         
         imagePicker = UIImagePickerController();
         imagePicker.delegate = self;
- /*
+ 
+        generateStores();
+        getStores();
+        
+        if itemToEdit != nil {
+            
+            loadItemData();
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let store = stores[row];
+        return store.name;
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return stores.count;
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1;
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // update when selected
+    }
+    
+    func generateStores() {
         if #available(iOS 10.0, *) {
         let store = Store(context: context)
         store.name = "Best Buy";
@@ -73,30 +100,6 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             
             ad.saveContext();
         }
- */
-        getStores();
-        
-        if itemToEdit != nil {
-            
-            loadItemData();
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let store = stores[row];
-        return store.name;
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return stores.count;
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1;
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // update when selected
     }
     
     func getStores() {
