@@ -68,7 +68,6 @@
 			children = (
 				E2731DA125FC2DAE00CF4823 /* MainVC.swift */,
 				E207CF812644B00E00F53E88 /* ItemDetailsVC.swift */,
-				E207CF832644B4FA00F53E88 /* CustomTextField.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -78,6 +77,7 @@
 			children = (
 				E256794725FCC04B003B1BA2 /* MaterialView.swift */,
 				E28BD35D25FD95D7009DBB4C /* ItemCell.swift */,
+				E207CF832644B4FA00F53E88 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
