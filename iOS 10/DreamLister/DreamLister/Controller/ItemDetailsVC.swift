@@ -9,16 +9,18 @@
 import UIKit
 import CoreData
 
-class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     @IBOutlet weak var titleField: CustomTextField!;
     @IBOutlet weak var PriceField: CustomTextField!;
     @IBOutlet weak var detailsField: CustomTextField!;
     @IBOutlet weak var storePicker: UIPickerView!;
+    @IBOutlet weak var thumgImg: UIImageView!;
     
     var stores = [Store]();
     var itemToEdit: Item?;
+    var imagePicker: UIImagePickerController!;
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -35,6 +37,9 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         storePicker.delegate = self;
         storePicker.dataSource = self;
         
+        imagePicker = UIImagePickerController();
+        imagePicker.delegate = self;
+ /*
         if #available(iOS 10.0, *) {
         let store = Store(context: context)
         store.name = "Best Buy";
@@ -68,6 +73,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             
             ad.saveContext();
         }
+ */
         getStores();
         
         if itemToEdit != nil {
@@ -109,6 +115,10 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
     @IBAction func savePressed(_ sender: UIButton) {
         if #available(iOS 10.0, *) {
             var item: Item!; //app crash, if there is no database
+            let picture = Image(context: context);
+            picture.image = thumgImg.image;
+            
+            
             
             if itemToEdit == nil {
                 item = Item(context: context);
@@ -117,6 +127,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
                 item = itemToEdit;
             }
             
+            item.toImage = picture;
             
             if let title = titleField.text {
                 item.title = title;
@@ -139,8 +150,13 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         } else {
             let entityDescription = NSEntityDescription.entity(forEntityName: "Item",
             in: context);
+            let imageDescription = NSEntityDescription.entity(forEntityName: "Image",
+            in: context);
             
             var item:Item!;
+            let picture = Image(entity: imageDescription!, insertInto: context);
+            picture.image = thumgImg.image;
+            
             
             if itemToEdit == nil {
                 
@@ -149,6 +165,8 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
                 
                 item = itemToEdit;
             }
+            
+            item.toImage = picture;
             
             if let title = titleField.text {
                 item.title = title;
@@ -167,10 +185,9 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             item.toStore = stores[storePicker.selectedRow(inComponent: 0)];
             
             ad.saveContext();
-            
-            navigationController?.popViewController(animated: true);
-            
         }
+        
+        navigationController?.popViewController(animated: true);
     }
     
     func loadItemData() {
@@ -180,6 +197,8 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             titleField.text = item.title;
             PriceField.text = "\(item.price)";
             detailsField.text = item.details;
+            
+            thumgImg.image = item.toImage?.image as? UIImage;
             
             if let store = item.toStore {
                 
@@ -197,6 +216,32 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
                 } while (index < stores.count)
             }
         }
+    }
+    
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        
+        if itemToEdit != nil {
+            context.delete(itemToEdit!);
+            ad.saveContext();
+        }
+        
+        navigationController?.popViewController(animated: true);
+        
+    }
+    
+    @IBAction func addImage(_ sender: UIButton) {
+        
+        present(imagePicker, animated: true, completion: nil);
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            thumgImg.image = img;
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil);
     }
     
     //hiding the keyboard on return
