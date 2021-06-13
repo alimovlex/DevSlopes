@@ -101,7 +101,6 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         }
     }
     
-    
     func getStores() {
         
         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
