@@ -39,6 +39,15 @@ class AvatarPickerVC: UIViewController, UICollectionViewDelegate, UICollectionVi
         return 28;
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if avatarType == .dark {
+            UserDataService.instance.setAvatarName(avatarName: "dark\(indexPath.item)");
+        } else {
+            UserDataService.instance.setAvatarName(avatarName: "light\(indexPath.item)");
+        }
+        self.dismiss(animated: true, completion: nil);
+    }
+    
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil);
     }
