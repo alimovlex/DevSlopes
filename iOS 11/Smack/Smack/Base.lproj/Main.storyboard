@@ -142,6 +142,9 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="105" height="105"/>
+                                        <connections>
+                                            <outlet property="avatarImg" destination="Lfm-Oz-5fS" id="naS-si-Da0"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
