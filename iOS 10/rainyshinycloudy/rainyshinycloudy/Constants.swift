@@ -12,7 +12,7 @@ let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?";
 let LATITUDE = "lat=";
 let LONGTITUDE = "&lon=";
 let APP_ID = "&appid=";
-let API_KEY = "542ffd081e67f4512b705f89d2a611b2";
+let API_KEY = "dd901d59fd590a54f070075a96812a94";
             
 let FORECAST_BASE_URL = "http://api.openweathermap.org/data/2.5/forecast/daily?";
 let DAYS_COUNT = "&cnt=16";
