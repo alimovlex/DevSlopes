@@ -15,12 +15,20 @@ class Forecast {
     var _weatherType: String!;
     var _highTemp: String!;
     var _lowTemp: String!;
+    var _time: String!;
     
     var date: String {
         if _date == nil {
             _date = "NULL";
         }
         return _date;
+    }
+    
+    var time: String {
+        if _time == nil {
+            _time = "NULL";
+        }
+        return _time;
     }
     
     var weatherType: String {
@@ -46,15 +54,15 @@ class Forecast {
     
     init(weatherDict: Dictionary<String, AnyObject>) {
         
-        if let temp = weatherDict["temp"] as? Dictionary<String, AnyObject> {
+        if let temp = weatherDict["main"] {
             
-            if let min = temp["min"] as? Double {
+            if let min = temp["temp_min"] as? Double {
                 let kelvinToCelsius = min - 273.15;
                                        
                 self._lowTemp = String(kelvinToCelsius.rounded());
             }
             
-            if let max = temp["max"] as? Double {
+            if let max = temp["temp_max"] as? Double {
                 let kelvinToCelsius = max - 273.15;
                                        
                 self._highTemp = String(kelvinToCelsius.rounded());
@@ -64,6 +72,7 @@ class Forecast {
         if let weather = weatherDict["weather"] as? [Dictionary<String, AnyObject>] {
             if let main = weather[0]["main"] as? String {
                 self._weatherType = main;
+                
             }
         }
         
@@ -75,6 +84,7 @@ class Forecast {
             dateFormatter.dateFormat = "EEEE";
             dateFormatter.timeStyle = .none;
             self._date = unixConvertedDay.dayOfTheWeek();
+            self._time = unixConvertedDay.timeOfTheDay();
         }
         
     }
@@ -84,6 +94,11 @@ extension Date {
     func dayOfTheWeek() -> String {
         let dateFormatter = DateFormatter();
         dateFormatter.dateFormat = "EEEE";
+        return dateFormatter.string(from: self);
+    }
+    func timeOfTheDay() -> String {
+        let dateFormatter = DateFormatter();
+        dateFormatter.timeStyle = .short;
         return dateFormatter.string(from: self);
     }
 }
