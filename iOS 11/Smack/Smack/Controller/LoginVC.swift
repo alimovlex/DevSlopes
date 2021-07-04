@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -23,5 +23,15 @@ class LoginVC: UIViewController {
     @IBAction func createAccntBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil);
     }
-    
+    /*
+    //hiding the keyboard on return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        
+        default:
+            break;
+        }
+     return true
+    }
+    */
 }
