@@ -372,7 +372,14 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginPressed:" destination="dUJ-ep-Cee" eventType="touchUpInside" id="lDJ-Aw-TVD"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8dY-hW-OKs">
+                                <rect key="frame" x="141.5" y="161.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -383,14 +390,19 @@
                             <constraint firstItem="VwN-sy-yR5" firstAttribute="top" secondItem="IzL-kb-nQ2" secondAttribute="bottom" id="Y1R-eJ-8Zr"/>
                             <constraint firstItem="hNa-2F-o3r" firstAttribute="centerX" secondItem="jsp-K8-veb" secondAttribute="centerX" id="YTL-UO-xer"/>
                             <constraint firstItem="IzL-kb-nQ2" firstAttribute="centerX" secondItem="jsp-K8-veb" secondAttribute="centerX" id="Zvz-BS-5SG"/>
+                            <constraint firstItem="8dY-hW-OKs" firstAttribute="centerX" secondItem="jsp-K8-veb" secondAttribute="centerX" id="dN5-Mz-KGH"/>
                             <constraint firstItem="IzL-kb-nQ2" firstAttribute="top" secondItem="hNa-2F-o3r" secondAttribute="bottom" constant="40" id="dcu-lZ-HyV"/>
                             <constraint firstItem="TgY-I0-ZF0" firstAttribute="top" secondItem="Fz5-Wt-k6O" secondAttribute="top" constant="60" id="rAw-sY-yeU"/>
+                            <constraint firstItem="8dY-hW-OKs" firstAttribute="centerY" secondItem="jsp-K8-veb" secondAttribute="centerY" constant="-50" id="rqL-AA-b0s"/>
                             <constraint firstItem="hNa-2F-o3r" firstAttribute="top" secondItem="TgY-I0-ZF0" secondAttribute="bottom" constant="40" id="so6-Ik-JJy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fz5-Wt-k6O"/>
                     </view>
                     <navigationItem key="navigationItem" id="mhh-9e-TWM"/>
                     <connections>
+                        <outlet property="emailTxt" destination="1mq-yp-tB7" id="2V4-kd-GtN"/>
+                        <outlet property="passwordTxt" destination="ZYd-lH-wpi" id="JtO-8r-JNv"/>
+                        <outlet property="spinner" destination="8dY-hW-OKs" id="D2n-Q7-lf8"/>
                         <segue destination="mdg-5c-dnV" kind="show" identifier="toCreateAccount" id="kQa-c1-nli"/>
                     </connections>
                 </viewController>
@@ -534,7 +546,7 @@
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hnY-Fm-idA">
                                 <rect key="frame" x="141.5" y="161.5" width="37" height="37"/>
-                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
