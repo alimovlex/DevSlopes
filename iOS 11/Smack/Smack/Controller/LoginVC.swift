@@ -67,7 +67,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         emailTxt.delegate = self;
         passwordTxt.delegate = self;
         
-        emailTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder]);
+        emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder]);
         passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder]);
     }
     

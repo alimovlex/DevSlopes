@@ -217,7 +217,7 @@
                                 <rect key="frame" x="0.0" y="105" width="320" height="260"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PhU-1k-1OJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="channelCell" id="PhU-1k-1OJ" customClass="ChannelCell" customModule="Smack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PhU-1k-1OJ" id="Qg5-oI-zXC">
@@ -237,6 +237,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="channelName" destination="ncg-RS-Vik" id="arJ-Kg-1BG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -262,6 +265,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="zKY-3V-sue" id="Qc0-DI-jMP"/>
+                        <outlet property="tableView" destination="0gR-FI-B7J" id="xvl-3d-auH"/>
                         <outlet property="userImg" destination="NKK-eN-Wbi" id="X6W-Tb-YeB"/>
                         <segue destination="dUJ-ep-Cee" kind="show" identifier="toLogin" id="irC-yO-Xoj"/>
                     </connections>
@@ -320,7 +324,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="hNa-2F-o3r">
                                 <rect key="frame" x="35" y="140" width="250" height="87.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1mq-yp-tB7">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1mq-yp-tB7">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="21.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="csQ-Pv-8BW"/>
