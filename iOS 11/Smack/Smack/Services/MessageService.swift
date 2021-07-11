@@ -55,15 +55,8 @@ class MessageService {
                             let id = item["_id"].stringValue;
                             let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id);
                             self.channels.append(channel);
+                            print(self.channels[0].channelTitle);
                         }
-                        //Printing the list of active channels.
-                        /*
-                        if let activeChannel = self.channels[1].channelTitle {
-                            print(activeChannel);
-                        } else {
-                            print("There are no current active channels on a server.")
-                        }
-                        */
                         completion(true);
                     }
                 } catch {

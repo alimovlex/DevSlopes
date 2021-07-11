@@ -29,7 +29,7 @@ class ChatVC: UIViewController {
         MessageService.instance.findAllChannel { (success) in
             
         }
-        
+        //SocketService.instance.socketConnect();
     }
 
 }
