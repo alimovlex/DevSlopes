@@ -35,6 +35,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     override func viewDidLoad() {
         super.viewDidLoad();
         locationManager.delegate = self;
+        locationManager.requestWhenInUseAuthorization();
+        locationManager.startMonitoringSignificantLocationChanges();
         tableView.delegate = self;
         tableView.dataSource = self;
         currentWeather = CurrentWeather();
@@ -71,13 +73,12 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             
             present(alertController, animated: true) //showing the URL entrance message
         }
+        
     }
     
     func locationAuthStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-            locationManager.requestWhenInUseAuthorization();
-            locationManager.startMonitoringSignificantLocationChanges();
             currentLocation = locationManager.location;
             Services.sharedInstance.latitude = currentLocation.coordinate.latitude;
             Services.sharedInstance.longtitude = currentLocation.coordinate.longitude;
