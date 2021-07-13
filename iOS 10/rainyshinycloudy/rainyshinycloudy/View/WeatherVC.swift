@@ -34,7 +34,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        locationAuthStatus();
         locationManager.delegate = self;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -45,6 +44,7 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     
     override func viewDidAppear(_ animated: Bool) {
         if Services.sharedInstance.checkInternetConnection() {
+            locationAuthStatus();
         currentWeather.downloadWeatherDetails {
             self.downloadForecastData {
                 self.updateMainUI();
@@ -74,18 +74,16 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     }
     
     func locationAuthStatus() {
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in //thread added
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            self?.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-            self?.locationManager.requestWhenInUseAuthorization();
-            self?.locationManager.startMonitoringSignificantLocationChanges();
-            self?.currentLocation = self?.locationManager.location;
-            Services.sharedInstance.latitude = self?.currentLocation.coordinate.latitude;
-            Services.sharedInstance.longtitude = self?.currentLocation.coordinate.longitude;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            locationManager.requestWhenInUseAuthorization();
+            locationManager.startMonitoringSignificantLocationChanges();
+            currentLocation = locationManager.location;
+            Services.sharedInstance.latitude = currentLocation.coordinate.latitude;
+            Services.sharedInstance.longtitude = currentLocation.coordinate.longitude;
         } else {
-            self?.locationManager.requestWhenInUseAuthorization();
-            self?.locationAuthStatus();
-        }
+            locationManager.requestWhenInUseAuthorization();
+            locationAuthStatus();
         }
     }
     
