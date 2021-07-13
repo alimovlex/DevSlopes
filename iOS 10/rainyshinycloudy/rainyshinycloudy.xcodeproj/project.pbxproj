@@ -19,7 +19,7 @@
 		E257ADAC25FF00DA00407BC8 /* rainyshinycloudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257ADAB25FF00DA00407BC8 /* rainyshinycloudyUITests.swift */; };
 		E272A562260F34CA00D91E08 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A561260F34CA00D91E08 /* Forecast.swift */; };
 		E272A564260F640300D91E08 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A563260F640300D91E08 /* WeatherCell.swift */; };
-		E272A566260F798700D91E08 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A565260F798700D91E08 /* Location.swift */; };
+		E272A566260F798700D91E08 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A565260F798700D91E08 /* Services.swift */; };
 		E2D218092607D71400710699 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D218082607D71400710699 /* Constants.swift */; };
 		E2D2180B2607DCD200710699 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D2180A2607DCD200710699 /* CurrentWeather.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		E257ADAD25FF00DA00407BC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E272A561260F34CA00D91E08 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		E272A563260F640300D91E08 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
-		E272A565260F798700D91E08 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E272A565260F798700D91E08 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		E2D218082607D71400710699 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E2D2180A2607DCD200710699 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		F33A37179FAB907415F74E5B /* Pods_rainyshinycloudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rainyshinycloudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				E2D218082607D71400710699 /* Constants.swift */,
-				E272A565260F798700D91E08 /* Location.swift */,
+				E272A565260F798700D91E08 /* Services.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 				E2D2180B2607DCD200710699 /* CurrentWeather.swift in Sources */,
 				E2D218092607D71400710699 /* Constants.swift in Sources */,
 				E272A562260F34CA00D91E08 /* Forecast.swift in Sources */,
-				E272A566260F798700D91E08 /* Location.swift in Sources */,
+				E272A566260F798700D91E08 /* Services.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,14 +624,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T595WJ7W8;
+				DEVELOPMENT_TEAM = 3A9CX99HJE;
 				INFOPLIST_FILE = rainyshinycloudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alimovlex.forecast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonda.forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -644,14 +644,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8T595WJ7W8;
+				DEVELOPMENT_TEAM = 3A9CX99HJE;
 				INFOPLIST_FILE = rainyshinycloudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.alimovlex.forecast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rhonda.forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

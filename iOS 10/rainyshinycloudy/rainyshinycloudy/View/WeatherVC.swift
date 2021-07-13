@@ -40,14 +40,38 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
         tableView.dataSource = self;
         currentWeather = CurrentWeather();
         //forecast = Forecast();
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Services.sharedInstance.checkInternetConnection() {
         currentWeather.downloadWeatherDetails {
             self.downloadForecastData {
                 self.updateMainUI();
             }
+        }
+        } else {
+            let alertController = UIAlertController(title: "Please enable wifi connection in the settings menu.", message: "The internet connection is required.", preferredStyle: .alert);
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { _ in
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "App-Prefs:root=WIFI")!)
+                } else {
+                    let settingsUrl = URL(string: "App-Prefs:root=WIFI")
+                    if let url = settingsUrl {
+                        UIApplication.shared.openURL(url);
+                    } else {
+                        print("incorrect URL provided!");
+                    }
+                }
+                }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel); //dismissing the entrance of the URL
             
+            alertController.addAction(settingsAction) //connect the submit button the UIAlertController
+            alertController.addAction(cancelAction) //connect the cancel button the UIAlertController
+            
+            present(alertController, animated: true) //showing the URL entrance message
         }
     }
-    
     
     func locationAuthStatus() {
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in //thread added
@@ -56,8 +80,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
             self?.locationManager.requestWhenInUseAuthorization();
             self?.locationManager.startMonitoringSignificantLocationChanges();
             self?.currentLocation = self?.locationManager.location;
-            Location.sharedInstance.latitude = self?.currentLocation.coordinate.latitude;
-            Location.sharedInstance.longtitude = self?.currentLocation.coordinate.longitude;
+            Services.sharedInstance.latitude = self?.currentLocation.coordinate.latitude;
+            Services.sharedInstance.longtitude = self?.currentLocation.coordinate.longitude;
         } else {
             self?.locationManager.requestWhenInUseAuthorization();
             self?.locationAuthStatus();

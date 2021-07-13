@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?";
 let LATITUDE = "lat=";
@@ -20,7 +21,7 @@ typealias DownloadComplete = () -> ();
 
 func forecastWeatherUrl () -> String {
     
-    if let latitude = Location.sharedInstance.latitude, let longtitude = Location.sharedInstance.longtitude {
+    if let latitude = Services.sharedInstance.latitude, let longtitude = Services.sharedInstance.longtitude {
         return "\(FORECAST_BASE_URL)\(LATITUDE)\(latitude)\(LONGTITUDE)\(longtitude)\(APP_ID)\(API_KEY)"
     } else {
         return "";
@@ -29,11 +30,19 @@ func forecastWeatherUrl () -> String {
 
 func currentWeatherUrl () -> String {
     
-    if let latitude = Location.sharedInstance.latitude, let longtitude = Location.sharedInstance.longtitude {
+    if let latitude = Services.sharedInstance.latitude, let longtitude = Services.sharedInstance.longtitude {
         return "\(BASE_URL)\(LATITUDE)\(latitude)\(LONGTITUDE)\(longtitude)\(APP_ID)\(API_KEY)";
     } else {
         return "";
     }
 }
+
+struct Connectivity {
+  static let sharedInstance = NetworkReachabilityManager()!
+  static var isConnectedToInternet:Bool {
+      return self.sharedInstance.isReachable
+    }
+}
+
 //let stroka = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=52&lon=86&cnt=10&appid=542ffd081e67f4512b705f89d2a611b2";
 

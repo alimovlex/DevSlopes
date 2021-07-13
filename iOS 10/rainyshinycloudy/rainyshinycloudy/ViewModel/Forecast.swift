@@ -88,6 +88,7 @@ class Forecast {
         }
         
     }
+    
 }
 
 extension Date {
