@@ -77,14 +77,16 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, C
     }
     
     func locationAuthStatus() {
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in //thread added
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-            currentLocation = locationManager.location;
-            Services.sharedInstance.latitude = currentLocation.coordinate.latitude;
-            Services.sharedInstance.longtitude = currentLocation.coordinate.longitude;
+            self?.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            self?.currentLocation = self?.locationManager.location;
+            Services.sharedInstance.latitude = self?.currentLocation.coordinate.latitude;
+            Services.sharedInstance.longtitude = self?.currentLocation.coordinate.longitude;
         } else {
-            locationManager.requestWhenInUseAuthorization();
-            locationAuthStatus();
+            self?.locationManager.requestWhenInUseAuthorization();
+            self?.locationAuthStatus();
+            }
         }
     }
     
