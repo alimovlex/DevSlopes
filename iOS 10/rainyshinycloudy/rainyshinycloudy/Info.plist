@@ -29,10 +29,6 @@
 	<string>App uses location to give you relevant, up-to-date weather information.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App uses your location to give you relevant, up-to-date weather information.</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>App uses bluetooth to connect to the BLE devices.</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>App uses bluetooth to connect to the BLE devices.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

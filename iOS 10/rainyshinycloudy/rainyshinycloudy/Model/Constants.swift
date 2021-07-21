@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import CoreBluetooth
 
 let BASE_URL = "http://api.openweathermap.org/data/2.5/weather?";
 let LATITUDE = "lat=";
@@ -44,8 +43,6 @@ struct Connectivity {
       return self.sharedInstance.isReachable
     }
 }
-
-let DEVICE_SERVICE_UUID = CBUUID.init(string: "16916abb-f6c0-4a82-ed4e-481d439c8102");
 
 //let stroka = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=52&lon=86&cnt=10&appid=542ffd081e67f4512b705f89d2a611b2";
 
