@@ -17,8 +17,6 @@ class Services {
     
     var latitude: Double?;
     var longtitude: Double?;
-    
-    
 
     func checkInternetConnection() -> Bool {
             if Connectivity.isConnectedToInternet {
