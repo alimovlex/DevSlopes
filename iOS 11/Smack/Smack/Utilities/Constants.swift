@@ -12,12 +12,12 @@ typealias CompletionHandler = (_ Success: Bool) -> ();
 
 // URL constants
 
-let BASE_URL = "http://192.168.43.8:3005/v1/"; //CHANGE IT, IF YOUR LOCALHOST DIFFERS!
+let BASE_URL = "http://185.17.2.188:3005/v1/"; //CHANGE IT, IF YOUR LOCALHOST DIFFERS!
 let URL_REGISTER = "\(BASE_URL)account/register";
 let URL_LOGIN = "\(BASE_URL)account/login";
 let URL_USER_ADD = "\(BASE_URL)user/add";
 let URL_USER_BY_EMAIL = "\(BASE_URL)user/byEmail/";
-let URL_GET_CHANNELS = "\(BASE_URL)channel";
+let URL_GET_CHANNELS = "\(BASE_URL)channel/";
 
 // Colors
 let smackPurplePlaceholder = #colorLiteral(red: 0.2588235294, green: 0.3294117647, blue: 0.7254901961, alpha: 0.5);

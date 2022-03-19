@@ -26,6 +26,8 @@ class MessageService {
                     else {
                         return;
                 }
+                let info = String(format: "%02x", Array<UInt8>(response.data.unsafelyUnwrapped));
+                print("The current response byte \(info)");
                 
                 //Checking the list of channels (not working currently)
                 for value in response.result.value as! [Channel] {
@@ -45,24 +47,24 @@ class MessageService {
                     print(error.localizedDescription);
                 }
                 */
-                
-                do {
-                    if let json = try JSON(data: data).array
-                    {
+                //The JSON returned from the server is nil!!!
+                if let json = try? JSON(data: data).array
+                {
+                    print(json.count);
                         for item in json {
                             let name = item["name"].stringValue;
                             let channelDescription = item["description"].stringValue;
                             let id = item["_id"].stringValue;
                             let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id);
                             self.channels.append(channel);
-                            //print(self.channels[0].channelTitle);
+                            print(self.channels[0].channelTitle);
                             
                         }
                         NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil);
                         completion(true);
-                    }
-                } catch {
-                    print(error);
+                } else {
+                    print("Unable to turn the JSON into Swift array!!!");
+                    debugPrint(response.result.error as Any);
                 }
                 
             } else {
