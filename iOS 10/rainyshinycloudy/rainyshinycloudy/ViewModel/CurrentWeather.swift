@@ -2,8 +2,8 @@
 //  CurrentWeather.swift
 //  rainyshinycloudy
 //
-//  Created by robot on 7/27/16.
-//  Copyright © 2021 robot. All rights reserved.
+//  Created by alimovlex on 7/27/16.
+//  Copyright © 2021 alimovlex. All rights reserved.
 //
 
 import UIKit
