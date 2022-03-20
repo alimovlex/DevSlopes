@@ -62,5 +62,7 @@
 	</array>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>We need to analyze and transcribe your audio. We hope that&apos;s cool!</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need to analyze and transcribe your audio. We hope that&apos;s cool!</string>
 </dict>
 </plist>

@@ -24,6 +24,8 @@
 	<string>This app requires your location to pull photos from Flickr.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This app requires your location to pull photos from Flickr.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app requires your location to pull photos from Flickr.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
