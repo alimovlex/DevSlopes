@@ -14,6 +14,8 @@ let LATITUDE = "lat=";
 let LONGTITUDE = "&lon=";
 let APP_ID = "&appid=";
 let API_KEY = "dd901d59fd590a54f070075a96812a94";
+let API_UNITS = "&units=";
+let API_METRIC_UNITS = "metric";
             
 let FORECAST_BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?";
 //let DAYS_COUNT = "&cnt=16";
@@ -22,7 +24,7 @@ typealias DownloadComplete = () -> ();
 func forecastWeatherUrl () -> String {
     
     if let latitude = Services.sharedInstance.latitude, let longtitude = Services.sharedInstance.longtitude {
-        return "\(FORECAST_BASE_URL)\(LATITUDE)\(latitude)\(LONGTITUDE)\(longtitude)\(APP_ID)\(API_KEY)"
+        return "\(FORECAST_BASE_URL)\(LATITUDE)\(latitude)\(LONGTITUDE)\(longtitude)\(APP_ID)\(API_KEY)\(API_UNITS)\(API_METRIC_UNITS)"
     } else {
         return "";
     }
@@ -31,7 +33,7 @@ func forecastWeatherUrl () -> String {
 func currentWeatherUrl () -> String {
     
     if let latitude = Services.sharedInstance.latitude, let longtitude = Services.sharedInstance.longtitude {
-        return "\(BASE_URL)\(LATITUDE)\(latitude)\(LONGTITUDE)\(longtitude)\(APP_ID)\(API_KEY)";
+        return "\(BASE_URL)\(LATITUDE)\(latitude)\(LONGTITUDE)\(longtitude)\(APP_ID)\(API_KEY)\(API_UNITS)\(API_METRIC_UNITS)";
     } else {
         return "";
     }
